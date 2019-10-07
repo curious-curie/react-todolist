@@ -2,12 +2,20 @@ import React, { Component } from 'react'
 import TodoItem from './TodoItem'
 
 export default class TodoListBody extends Component {
+
+    static defaultProps = {
+        data: []
+    }
     render() {
+        const { data, onRemove, onUpdate } = this.props;
+        
+        const list = data.map(
+            info => (<TodoItem onRemove = {onRemove} onUpdate = {onUpdate}
+                info = {info} key = {info.id }/>)
+        )
         return (
             <div>
-                <TodoItem icon="🍒" todo="todo item 1"></TodoItem>
-                <TodoItem icon="💑" todo="todo item 2"></TodoItem>
-                <TodoItem icon="✏️" todo="todo item 3"></TodoItem>
+                {list}
             </div>
         )
     }
