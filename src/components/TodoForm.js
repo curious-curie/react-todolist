@@ -7,13 +7,13 @@ const TodoForm = ({icon, todo, onChangeIcon, onClickIcon, onChange, onCreate, on
         <div>     
             <div>
                         {/* <TodoIcon value="📚"></TodoIcon>
-                        <span onClick={this.handleIcon} className="icon-wrapper" role="img" aria-label="emoji" value="dd">dd</span> */}
-                        <button className = "icon-wrapper" onClick = {onClickIcon} value="📚">📚</button>
-                        <button className = "icon-wrapper" onClick = {onClickIcon} value="✏️">️️✏️</button>
-                        <button className = "icon-wrapper" onClick = {onClickIcon} value="⏰">⏰</button>
-                        <button className = "icon-wrapper" onClick = {onClickIcon} value="💑">💑</button>
-                        <button className = "icon-wrapper" onClick = {onClickIcon} value="🦁">🦁</button>
-                        <button className = "icon-wrapper" onClick = {onClickIcon} value="🍒">🍒</button>
+                        <span onClick={this.handleIcon} className="icon-wrapper-white" role="img" aria-label="emoji" value="dd">dd</span> */}
+                        <button className = "icon-wrapper-white" onClick = {onClickIcon} value="📚">📚</button>
+                        <button className = "icon-wrapper-white" onClick = {onClickIcon} value="✏️">️ ️✏️</button>
+                        <button className = "icon-wrapper-white" onClick = {onClickIcon} value="⏰">⏰</button>
+                        <button className = "icon-wrapper-white" onClick = {onClickIcon} value="💑">💑</button>
+                        <button className = "icon-wrapper-white" onClick = {onClickIcon} value="🦁">🦁</button>
+                        <button className = "icon-wrapper-white" onClick = {onClickIcon} value="🍒">🍒</button>
                         {/* <TodoIcon onClick = {this.handleIcon} value="💑"></TodoIcon>
                         <TodoIcon onClick = {this.handleIcon} value="🦁"></TodoIcon>
                         <TodoIcon onClick = {this.handleIcon} value="🍒"></TodoIcon> */}
@@ -59,13 +59,13 @@ export default TodoForm;
 //             <div>
 //                 <div>
 //                     {/* <TodoIcon value="📚"></TodoIcon>
-//                     <span onClick={this.handleIcon} className="icon-wrapper" role="img" aria-label="emoji" value="dd">dd</span> */}
-//                     <button className = "icon-wrapper" onClick = {this.handleIcon} value="📚">📚</button>
-//                     <button className = "icon-wrapper" onClick = {this.handleIcon} value="✏️">️️✏️</button>
-//                     <button className = "icon-wrapper" onClick = {this.handleIcon} value="⏰">⏰</button>
-//                     <button className = "icon-wrapper" onClick = {this.handleIcon} value="💑">💑</button>
-//                     <button className = "icon-wrapper" onClick = {this.handleIcon} value="🦁">🦁</button>
-//                     <button className = "icon-wrapper" onClick = {this.handleIcon} value="🍒">🍒</button>
+//                     <span onClick={this.handleIcon} className="icon-wrapper-white" role="img" aria-label="emoji" value="dd">dd</span> */}
+//                     <button className = "icon-wrapper-white" onClick = {this.handleIcon} value="📚">📚</button>
+//                     <button className = "icon-wrapper-white" onClick = {this.handleIcon} value="✏️">️️✏️</button>
+//                     <button className = "icon-wrapper-white" onClick = {this.handleIcon} value="⏰">⏰</button>
+//                     <button className = "icon-wrapper-white" onClick = {this.handleIcon} value="💑">💑</button>
+//                     <button className = "icon-wrapper-white" onClick = {this.handleIcon} value="🦁">🦁</button>
+//                     <button className = "icon-wrapper-white" onClick = {this.handleIcon} value="🍒">🍒</button>
 //                     {/* <TodoIcon onClick = {this.handleIcon} value="💑"></TodoIcon>
 //                     <TodoIcon onClick = {this.handleIcon} value="🦁"></TodoIcon>
 //                     <TodoIcon onClick = {this.handleIcon} value="🍒"></TodoIcon> */}

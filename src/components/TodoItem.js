@@ -6,21 +6,19 @@ export default class TodoItem extends Component {
 
 
 
-
-    shouldComponentUpdate(nextProps, nextState) {
-        if(this.state !== nextState){ return true; }
-        return this.props !== nextProps;
-    }
     render() {
 
-        const { icon, todo, onRemove } = this.props;
+        const { id, icon, todo, checked, onRemove, onToggle } = this.props;
       
         return (
             <div>
-                <div className = "todo-item">
+                <div className = {`todo-item ${checked && 'checked'}`} >
                     <TodoIcon value={icon}></TodoIcon>
-                    <span className = "todo">{todo}</span>
-                    <span className="checkbox"> ⃞ </span>
+                    <span className ={`todo-item ${checked && 'todo-checked'}`}>{todo}</span>
+                    <div className="checkbox" onClick={() => onToggle(id)}> ⃞ </div>
+                    <div>
+                        { checked && (<div className = "check">✓</div>)}
+                    </div>
                 </div>
                 
             </div>

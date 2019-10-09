@@ -7,16 +7,18 @@ export default class TodoListBody extends Component {
         todos: []
     }
     render() {
-        const { todos, onRemove, onUpdate } = this.props;
+        const { todos, onRemove, onUpdate, onToggle } = this.props;
         
         const list = todos.map(
-            ({id, icon, todo}) => (
+            ({id, icon, todo, checked}) => (
                 <TodoItem
                     id={id}
                     icon={icon}
                     todo={todo}
                     onRemove={onRemove}
                     onUpdate={onUpdate}
+                    onToggle={onToggle}
+                    checked = {checked}
                     key={id}
                     />
             )

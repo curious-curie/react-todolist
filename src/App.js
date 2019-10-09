@@ -12,11 +12,36 @@ export default class App extends Component {
     todo: '',
 
     todos: [
-      { id: 0, icon: '🍒', todo: '무릎담요 사기'},
-      { id: 1, icon: '✏️', todo: '컴구 ppt 프린트하기'},
+      { id: 0, icon: '🍒', todo: '무릎담요 사기', checked: false},
+      { id: 1, icon: '✏️', todo: '컴구 ppt 프린트하기', checked: false},
     ]
   }
-  
+  handleToggle = (id) => {
+    const {todos} = this.state;
+
+    const index = todos.findIndex(todo=> todo.id === id);
+    const selected = todos[index];
+    const nextTodos = [...todos];
+
+
+    nextTodos[index] = {
+      ...selected,
+      checked: !selected.checked
+    };
+    
+    const checkedItem = nextTodos[index];
+
+    nextTodos.splice(index, 1)
+    alert(selected.checked)
+    if(selected.checked){ nextTodos.unshift(checkedItem); }
+    else nextTodos.push(checkedItem)
+
+
+    this.setState({
+      todos: nextTodos
+    })
+
+  }
   handleChange = (e) => {
     this.setState({
       todo : e.target.value,
@@ -34,14 +59,16 @@ export default class App extends Component {
   handleCreate = (e) => {
     const { icon, todo, todos } = this.state;
     e.preventDefault();
+    const newElement = {
+      id: this.id++,
+        icon: icon,
+        todo: todo,
+        checked: false,
+    }
     this.setState({
       icon: '',
       todo: '',
-      todos: todos.concat({
-        id: this.id++,
-        icon: icon,
-        todo: todo
-      })
+      todos: [newElement].concat(todos),
 
     })
   }
@@ -53,10 +80,16 @@ export default class App extends Component {
     }
   }
 
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if(this.state !== nextState){ return true; }
+    return this.props !== nextProps;
+}
+
   render(){
     const { icon, todo, todos } = this.state;
     const {
-      handleChange, handleCreate, handleKeyPress, handleClickIcon} = this; //이것도 바인딩??
+      handleChange, handleCreate, handleKeyPress, handleClickIcon, handleToggle} = this; //이것도 바인딩??
     
     
     return (
@@ -71,7 +104,7 @@ export default class App extends Component {
         onClickIcon = {handleClickIcon}
     />)}>
 
-      <TodoListBody todos = {todos}/>
+      <TodoListBody todos = {todos} onToggle = {handleToggle}/>
     </TodoTemplate>
 
   );
