@@ -4,25 +4,16 @@ import './TodoItem.css'
 
 export default class TodoItem extends Component {
 
-    state = {
-        editing: false,
-        icon: '',
-        todo: '',
-    }
 
 
-    handleRemove = () => {
-        const { info, onRemove } = this.props;
-        onRemove(info.id);
-    }
 
     shouldComponentUpdate(nextProps, nextState) {
         if(this.state !== nextState){ return true; }
-        return this.props.info !== nextProps.info;
+        return this.props !== nextProps;
     }
     render() {
 
-        const { icon, todo } = this.props.info;
+        const { icon, todo, onRemove } = this.props;
       
         return (
             <div>

@@ -4,14 +4,22 @@ import TodoItem from './TodoItem'
 export default class TodoListBody extends Component {
 
     static defaultProps = {
-        data: []
+        todos: []
     }
     render() {
-        const { data, onRemove, onUpdate } = this.props;
+        const { todos, onRemove, onUpdate } = this.props;
         
-        const list = data.map(
-            info => (<TodoItem onRemove = {onRemove} onUpdate = {onUpdate}
-                info = {info} key = {info.id }/>)
+        const list = todos.map(
+            ({id, icon, todo}) => (
+                <TodoItem
+                    id={id}
+                    icon={icon}
+                    todo={todo}
+                    onRemove={onRemove}
+                    onUpdate={onUpdate}
+                    key={id}
+                    />
+            )
         )
         return (
             <div>
