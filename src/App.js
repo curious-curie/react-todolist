@@ -32,7 +32,6 @@ export default class App extends Component {
     const checkedItem = nextTodos[index];
 
     nextTodos.splice(index, 1)
-    alert(selected.checked)
     if(selected.checked){ nextTodos.unshift(checkedItem); }
     else nextTodos.push(checkedItem)
 
