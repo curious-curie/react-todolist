@@ -8,6 +8,7 @@ const TodoForm = ({icon, todo, onChangeIcon, onClickIcon, onChange, onCreate, on
             <div>
                         {/* <TodoIcon value="📚"></TodoIcon>
                         <span onClick={this.handleIcon} className="icon-wrapper-white" role="img" aria-label="emoji" value="dd">dd</span> */}
+                       
                         <button className = "icon-wrapper-white" onClick = {onClickIcon} value="📚">📚</button>
                         <button className = "icon-wrapper-white" onClick = {onClickIcon} value="✏️">️ ️✏️</button>
                         <button className = "icon-wrapper-white" onClick = {onClickIcon} value="⏰">⏰</button>
@@ -18,7 +19,7 @@ const TodoForm = ({icon, todo, onChangeIcon, onClickIcon, onChange, onCreate, on
                         <TodoIcon onClick = {this.handleIcon} value="🦁"></TodoIcon>
                         <TodoIcon onClick = {this.handleIcon} value="🍒"></TodoIcon> */}
                     </div>
-                    <form onSubmit = {onCreate} 
+                    <form autocomplete = "off" onSubmit = {onCreate} 
                     className="form-input-wrapper">
                         <input
                         onChange = {onChangeIcon}

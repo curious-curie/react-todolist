@@ -45,14 +45,13 @@ export default class App extends Component {
     this.setState({
       todo : e.target.value,
     });
-    console.log(this.state)
   }
 
   handleClickIcon = (e) => {
     this.setState({
       icon: e.target.value,
     })
-    console.log(this.state)
+
   }
 
   handleCreate = (e) => {
@@ -79,6 +78,13 @@ export default class App extends Component {
     }
   }
 
+  handleRemove = (id) => {
+    const {todos} = this.state;
+    this.setState({
+      todos: todos.filter(todo => todo.id !== id)
+    })
+
+  }
 
   shouldComponentUpdate(nextProps, nextState) {
     if(this.state !== nextState){ return true; }
@@ -88,12 +94,13 @@ export default class App extends Component {
   render(){
     const { icon, todo, todos } = this.state;
     const {
-      handleChange, handleCreate, handleKeyPress, handleClickIcon, handleToggle} = this; //이것도 바인딩??
+      handleChange,handleRemove, handleCreate, handleKeyPress, handleClickIcon, handleToggle} = this; 
     
     
     return (
     
-    <TodoTemplate form = {(
+    <TodoTemplate 
+      form = {(
       <TodoForm
         icon = {icon}
         todo = {todo}
@@ -101,10 +108,11 @@ export default class App extends Component {
         onChange = {handleChange}
         onCreate = {handleCreate}
         onClickIcon = {handleClickIcon}
-    />)}>
+        onRemove = {handleRemove}
+    />)} 
+      children = {(<TodoListBody todos = {todos} onRemove = {handleRemove} onToggle = {handleToggle}/>)}
+      />
 
-      <TodoListBody todos = {todos} onToggle = {handleToggle}/>
-    </TodoTemplate>
 
   );
 }
