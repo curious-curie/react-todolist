@@ -9,6 +9,7 @@
     height: 32px;
     margin-right: 5px;
     border-radius: 100%;
+    text-align: center;
 }
 
 .input-todo{

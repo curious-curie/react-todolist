@@ -1,21 +1,23 @@
-import React, { Component } from 'react'
-import TodoListBody from './TodoListBody'
-import TodoForm from './TodoForm'
+import React from 'react'
+
+
+
 import './TodoTemplate.css'
 
-export default class TodoTemplate extends Component {
-    render() {
-        return (
-            <div className="todo-template">
-                <div className = "title">Curie's Todo List</div>
-                <section className="form-wrapper">
-                    <TodoForm/>
+const TodoTemplate = ({form, children}) => {
 
-                </section>
-                <section className="list-wrapper">
-                    <TodoListBody/>
-                </section>
-            </div>
-        )
-    }
-}
+    return( 
+        <div className="todo-template">
+        <div className = "title">Curie's Todo List</div>
+        <section className="form-wrapper">
+            { form }
+
+        </section>
+        <section className="list-wrapper">
+            {children}
+        </section>
+        </div>  
+    );
+};
+
+export default TodoTemplate;

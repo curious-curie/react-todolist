@@ -4,3 +4,4 @@ body, html {
   background-image:url(https://i.redd.it/6hgj2o37pyr21.jpg);
 }
 
+input:focus {outline:none;}
